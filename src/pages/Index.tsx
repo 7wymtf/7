@@ -192,7 +192,7 @@ const Index = () => {
       <footer className="border-t border-white/10 mt-8">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-white/70 text-sm">
-            © 2025 HackerTools. For educational and professional use only.
+            7wym. For educational and professional use only.
           </p>
         </div>
       </footer>
