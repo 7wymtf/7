@@ -9,25 +9,25 @@ const products = [
     id: 1,
     title: "ESP32 Marauder",
     description: "Advanced Wi-Fi packet monitoring and injection tool. Features include deauthentication attacks, beacon spamming, and packet sniffing capabilities. Perfect for wireless security testing.",
-    price: 00.00
+    price: 0.00
   },
   {
     id: 2,
     title: "WiFi Deauth Module",
     description: "Specialized module for wireless network testing and security analysis. Supports multiple attack modes and comes with comprehensive documentation.",
-    price: 00.00
+    price: 0.00
   },
   {
     id: 3,
     title: "RF Protocol Scanner",
     description: "Multi-frequency radio protocol analyzer supporting common IoT frequencies. Ideal for IoT security research and wireless protocol analysis.",
-    price: 00.00
+    price: 0.00
   },
   {
     id: 4,
     title: "Hardware Flasher Kit",
     description: "Universal firmware flashing toolkit supporting multiple chip families. Includes adapters for common security testing modules.",
-    price: 00.00
+    price: 0.00
   },
 ];
 
