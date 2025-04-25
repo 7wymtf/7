@@ -38,7 +38,7 @@ const TeamSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="p-6 border border-white/10 rounded-lg"
           >
-            <UserRound className="w-5 h-5 text-white mb-4" />
+            <UserRound className="w-4 h-4 text-white mb-4" />
             <h3 className="text-white text-lg font-semibold mb-2">Research & Development</h3>
             <p className="text-white/70 text-sm">Leading innovation in hardware security tools and penetration testing equipment.</p>
           </motion.div>
@@ -49,7 +49,7 @@ const TeamSection = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="p-6 border border-white/10 rounded-lg"
           >
-            <Book className="w-5 h-5 text-white mb-4" />
+            <Book className="w-4 h-4 text-white mb-4" />
             <h3 className="text-white text-lg font-semibold mb-2">Documentation</h3>
             <p className="text-white/70 text-sm">Comprehensive guides and technical documentation for all our hardware tools.</p>
           </motion.div>
@@ -60,7 +60,7 @@ const TeamSection = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="p-6 border border-white/10 rounded-lg"
           >
-            <ExternalLink className="w-5 h-5 text-white mb-4" />
+            <ExternalLink className="w-4 h-4 text-white mb-4" />
             <h3 className="text-white text-lg font-semibold mb-2">Support</h3>
             <p className="text-white/70 text-sm">24/7 technical support and continuous firmware updates for our products.</p>
           </motion.div>
