@@ -1,6 +1,6 @@
-
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
+import TeamSection from "@/components/TeamSection";
 import { Shield, Terminal, Wrench, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -131,6 +131,9 @@ const Index = () => {
           </div>
         </div>
       </motion.section>
+
+      {/* Team Section */}
+      <TeamSection />
 
       {/* Technical Specifications */}
       <motion.section 
