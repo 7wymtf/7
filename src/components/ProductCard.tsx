@@ -21,7 +21,7 @@ const ProductCard = ({ title, description, price }: ProductCardProps) => {
       <h3 className="text-white text-base font-semibold mb-2">{title}</h3>
       <p className="text-white/70 text-xs mb-4 flex-grow">{description}</p>
       <div className="flex justify-between items-center">
-        <span className="text-white text-sm font-bold">${price}</span>
+        <span className="text-white text-sm font-bold">${price.toFixed(2)}</span>
         <Button 
           className="bg-white text-black hover:bg-white/90 text-xs py-1 px-3 h-8"
           onClick={() => console.log(`Add ${title} to cart`)}
