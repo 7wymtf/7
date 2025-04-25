@@ -33,22 +33,22 @@ const products = [
 
 const features = [
   {
-    icon: <Shield className="w-6 h-6" />,
+    icon: <Shield className="w-5 h-5" />,
     title: "Professional Tools",
     description: "Our hardware tools are designed for security researchers and penetration testers. Each module undergoes rigorous testing."
   },
   {
-    icon: <Terminal className="w-6 h-6" />,
+    icon: <Terminal className="w-5 h-5" />,
     title: "Open Source Firmware",
     description: "All our modules come with open-source firmware, allowing customization and verification of the code."
   },
   {
-    icon: <Wrench className="w-6 h-6" />,
+    icon: <Wrench className="w-5 h-5" />,
     title: "Hardware Support",
     description: "Lifetime technical support and firmware updates for all our hardware modules and tools."
   },
   {
-    icon: <Zap className="w-6 h-6" />,
+    icon: <Zap className="w-5 h-5" />,
     title: "Quick Setup",
     description: "Pre-flashed modules with easy-to-follow documentation for immediate deployment."
   },
