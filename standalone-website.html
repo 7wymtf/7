@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HackerTools - Professional Hardware Security Tools</title>
+  <meta name="description" content="Professional hardware security tools and modules for researchers and penetration testers." />
+  <meta name="author" content="HackerTools" />
+
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: black;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 50;
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: white;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        gap: 24px;
+      }
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .menu-button {
+      display: block;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .menu-button {
+        display: none;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 8px 16px 12px;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-link {
+      display: block;
+      padding: 8px 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 96px;
+      padding-bottom: 32px;
+    }
+
+    .hero-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-top: 48px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title {
+        font-size: 2.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+    }
+
+    .hero-description {
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 42rem;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-description {
+        font-size: 1.125rem;
+      }
+    }
+
+    /* Features */
+    .features {
+      padding: 32px 16px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .feature-card {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      margin-bottom: 8px;
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+
+    .feature-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-description {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Products Section */
+    .products {
+      padding: 32px 16px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .product-card {
+      background-color: black;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s;
+    }
+
+    .product-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.02);
+    }
+
+    .product-image-placeholder {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      height: 192px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.875rem;
+    }
+
+    .product-title {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .product-description {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      color: white;
+      font-size: 0.875rem;
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      color: black;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      height: 32px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .button-outline {
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .button-outline:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .button-sm {
+      height: 36px;
+      padding: 0 12px;
+      font-size: 0.875rem;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 64px 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .team-card {
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Tech Section */
+    .tech-section {
+      padding: 32px 16px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .tech-box {
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .tech-title {
+      color: white;
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .tech-list {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 32px 16px;
+    }
+
+    .about-box {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .about-title {
+      color: white;
+      font-size: 1.125rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .about-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      margin-bottom: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 32px;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 16px;
+      text-align: center;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-5 {
+      animation-delay: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">HackerTools</div>
+      
+      <div class="nav-links">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#about" class="nav-link">About</a>
+        <button class="nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 16h14"/></svg>
+        </button>
+      </div>
+
+      <button class="menu-button" id="menuButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" class="mobile-link">Home</a>
+      <a href="#products" class="mobile-link">Products</a>
+      <a href="#about" class="mobile-link">About</a>
+      <button class="mobile-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; margin-right: 8px;"><path d="M5 8h14M5 16h14"/></svg>
+        Cart
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1 class="hero-title">Professional Hardware Hacking Tools</h1>
+      <p class="hero-description">Specialized hardware modules and tools for security research and penetration testing</p>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title fade-in">Why Choose Our Hardware?</h2>
+      <div class="features-grid">
+        <div class="feature-card fade-in delay-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="m20 21-5-5"/><path d="M15 21v-7h7"/><path d="M4 12V7c0-2.8 0-4.2.5-5.3a4.9 4.9 0 0 1 2.2-2.2C7.8.5 9.2.5 12 .5s4.2 0 5.3.5a4.9 4.9 0 0 1 2.2 2.2c.5 1.1.5 2.5.5 5.3v5c0 2.8 0 4.2-.5 5.3a4.9 4.9 0 0 1-2.2 2.2c-1.1.5-2.5.5-5.3.5h-5c-2.8 0-4.2 0-5.3-.5a4.9 4.9 0 0 1-2.2-2.2C.5 16.2.5 14.8.5 12v-5"/><path d="M15 11v.01"/><path d="M11 11v.01"/><path d="M7 11v.01"/></svg>
+          <h3 class="feature-title">Professional Tools</h3>
+          <p class="feature-description">Our hardware tools are designed for security researchers and penetration testers. Each module undergoes rigorous testing.</p>
+        </div>
+
+        <div class="feature-card fade-in delay-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          <h3 class="feature-title">Open Source Firmware</h3>
+          <p class="feature-description">All our modules come with open-source firmware, allowing customization and verification of the code.</p>
+        </div>
+
+        <div class="feature-card fade-in delay-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <h3 class="feature-title">Hardware Support</h3>
+          <p class="feature-description">Lifetime technical support and firmware updates for all our hardware modules and tools.</p>
+        </div>
+
+        <div class="feature-card fade-in delay-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h3 class="feature-title">Quick Setup</h3>
+          <p class="feature-description">Pre-flashed modules with easy-to-follow documentation for immediate deployment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="products" id="products">
+    <div class="container">
+      <h2 class="section-title fade-in">Hardware Modules</h2>
+      <div class="products-grid">
+        <div class="product-card fade-in delay-1">
+          <div class="product-image-placeholder">Product Image</div>
+          <h3 class="product-title">ESP32 Marauder</h3>
+          <p class="product-description">Advanced Wi-Fi packet monitoring and injection tool. Features include deauthentication attacks, beacon spamming, and packet sniffing capabilities. Perfect for wireless security testing.</p>
+          <div class="product-footer">
+            <span class="product-price">$89.99</span>
+            <button class="button">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card fade-in delay-2">
+          <div class="product-image-placeholder">Product Image</div>
+          <h3 class="product-title">WiFi Deauth Module</h3>
+          <p class="product-description">Specialized module for wireless network testing and security analysis. Supports multiple attack modes and comes with comprehensive documentation.</p>
+          <div class="product-footer">
+            <span class="product-price">$59.99</span>
+            <button class="button">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card fade-in delay-3">
+          <div class="product-image-placeholder">Product Image</div>
+          <h3 class="product-title">RF Protocol Scanner</h3>
+          <p class="product-description">Multi-frequency radio protocol analyzer supporting common IoT frequencies. Ideal for IoT security research and wireless protocol analysis.</p>
+          <div class="product-footer">
+            <span class="product-price">$129.99</span>
+            <button class="button">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card fade-in delay-4">
+          <div class="product-image-placeholder">Product Image</div>
+          <h3 class="product-title">Hardware Flasher Kit</h3>
+          <p class="product-description">Universal firmware flashing toolkit supporting multiple chip families. Includes adapters for common security testing modules.</p>
+          <div class="product-footer">
+            <span class="product-price">$79.99</span>
+            <button class="button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section fade-in">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 48px;">
+        <h2 class="section-title">Meet Our Research Team</h2>
+        <p style="color: rgba(255, 255, 255, 0.7); max-width: 42rem; margin: 0 auto;">Our team consists of dedicated security researchers and hardware engineers with extensive experience in penetration testing and vulnerability assessment.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card fade-in delay-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          <h3 class="feature-title">Research & Development</h3>
+          <p class="feature-description">Leading innovation in hardware security tools and penetration testing equipment.</p>
+        </div>
+
+        <div class="team-card fade-in delay-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <h3 class="feature-title">Documentation</h3>
+          <p class="feature-description">Comprehensive guides and technical documentation for all our hardware tools.</p>
+        </div>
+
+        <div class="team-card fade-in delay-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feature-icon"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <h3 class="feature-title">Support</h3>
+          <p class="feature-description">24/7 technical support and continuous firmware updates for our products.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="button button-outline button-sm">Learn More About Our Team</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications -->
+  <section class="tech-section fade-in">
+    <div class="container">
+      <h2 class="section-title">Technical Details</h2>
+      <div class="tech-grid">
+        <div class="tech-box fade-in delay-1">
+          <h3 class="tech-title">Hardware Specifications</h3>
+          <ul class="tech-list" style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 8px;">• ESP32-WROOM-32 Module Base</li>
+            <li style="margin-bottom: 8px;">• 520KB SRAM, 448KB ROM</li>
+            <li style="margin-bottom: 8px;">• Dual-core 240MHz</li>
+            <li style="margin-bottom: 8px;">• Integrated Wi-Fi and Bluetooth</li>
+          </ul>
+        </div>
+        <div class="tech-box fade-in delay-2">
+          <h3 class="tech-title">Software Features</h3>
+          <ul class="tech-list" style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 8px;">• Custom firmware options</li>
+            <li style="margin-bottom: 8px;">• Web interface included</li>
+            <li style="margin-bottom: 8px;">• Regular OTA updates</li>
+            <li style="margin-bottom: 8px;">• Open source codebase</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section fade-in">
+    <div class="container">
+      <div class="about-box">
+        <h2 class="about-title">About Our Hardware</h2>
+        <p class="about-text">
+          Our hardware modules are specifically designed for security researchers and professionals. 
+          Each module undergoes extensive testing and comes with detailed documentation for both basic and advanced usage scenarios.
+        </p>
+        <p class="about-text">
+          We focus on creating reliable, well-documented hardware tools that integrate seamlessly with existing security testing workflows. 
+          Our commitment to open-source firmware ensures transparency and allows for community-driven improvements.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">© 2025 HackerTools. For educational and professional use only.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Add to cart functionality
+    const addToCartButtons = document.querySelectorAll('.product-footer .button');
+    
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+        alert(`${productTitle} added to cart!`);
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#') {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          return;
+        }
+        
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu after navigation
+          mobileMenu.classList.remove('active');
+        }
+      });
+    });
+
+    // Animation on scroll
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.fade-in');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition.top < windowHeight * 0.9) {
+          element.style.animationPlayState = 'running';
+        }
+      });
+    };
+
+    // Initial check and add scroll event
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
