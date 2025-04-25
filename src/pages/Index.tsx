@@ -1,7 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
-import { Shield, Terminal, Tool, Zap } from "lucide-react";
+import { Shield, Terminal, Wrench, Zap } from "lucide-react";
 
 const products = [
   {
@@ -46,7 +46,7 @@ const features = [
     description: "Powerful CLI tools for automation and integration."
   },
   {
-    icon: <Tool className="w-6 h-6" />,
+    icon: <Wrench className="w-6 h-6" />,
     title: "Customizable Tools",
     description: "Modify and extend functionality to meet your specific needs."
   },
