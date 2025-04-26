@@ -25,7 +25,7 @@ const TeamSection = () => {
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-white/70 max-w-2xl mx-auto"
+            className="text-white/70 text-sm max-w-2xl mx-auto"
           >
             Our team consists of dedicated security researchers and hardware engineers with extensive experience in penetration testing and vulnerability assessment.
           </motion.p>
